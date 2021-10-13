@@ -1,0 +1,119 @@
+{% extends 'layout.html' %}
+
+{% block titulo %} Dashboard - Superadmin {% endblock %}
+{% block usuario %} Dashboard {% endblock %}
+
+{% block body %}
+<!-- ************************ indicators board ************************ -->
+
+<div class="home-content">
+    <div class="overview-boxes">
+        <div class="box">
+            <div class="right-side">
+                <div class="box-topic">Total Pacientes</div>
+                <div class="number">1,172</div>
+            </div>
+            <!-- <i class='bx bx-user-pin patient'></i> -->
+            <i class="fa fa-user"></i>
+
+        </div>
+        <div class="box">
+            <div class="right-side">
+                <div class="box-topic">Total Médicos</div>
+                <div class="number">196</div>
+            </div>
+            <!-- <i class='bx bxs-user-pin doctor'></i> -->
+            <i class="fa fa-user-md"></i>
+
+        </div>
+        <div class="box">
+            <div class="right-side">
+                <div class="box-topic">Total Citas Programadas</div>
+                <div class="number">386</div>
+            </div>
+            <!-- <i class='bx bx-message-alt-check citas_programadas'></i> -->
+            <i class="fa fa-check-circle"></i>
+        </div>
+        <div class="box">
+            <div class="right-side">
+                <div class="box-topic">Total Citas Canceladas</div>
+                <div class="number">106</div>
+            </div>
+            <!-- <i class='bx bx-message-alt-x citas_canceladas'></i> -->
+            <i class="fa fa-times-circle"></i>
+        </div>
+    </div>
+
+    <!-- ************************ table patients and medical specialties ************************ -->
+
+    <div class="patients-boxes">
+        <div class="recent-patients box">
+            <div class="title">Pacientes por Especialidad Médica</div>
+            <div class="patients-details">
+
+                <table id="table">
+                    <thead>
+                        <tr>
+                            <th scope="Especialidad">ID</th>
+                            <th scope="Cantidad Pacientes">Nombre</th>
+                            <th scope="Cantidad Pacientes">Cantidad de pacientes</th>
+
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <th scope="row">001</th>
+                            <td>Cirugía</td>
+                            <td style="text-align: right;">190</td>
+                        </tr>
+                        <tr>
+                            <th scope="row">002</th>
+                            <td>Oncología</td>
+                            <td style="text-align: right;">123</td>
+                        </tr>
+                        <tr>
+                            <th scope="row">003</th>
+                            <td>Odontología</td>
+                            <td style="text-align: right;">351</td>
+                        </tr>
+                        <tr>
+                            <th scope="row">004</th>
+                            <td>Ginecología</td>
+                            <td style="text-align: right;">450</td>
+                        </tr>
+                        <tr>
+                            <th scope="row">005</th>
+                            <td>Dermatología</td>
+                            <td style="text-align: right;">99</td>
+                        </tr>
+                        <tr>
+                            <th scope="row">006</th>
+                            <td>Neurología</td>
+                            <td style="text-align: right;">53</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            <div class="button">
+                <a href="#">See All</a>
+            </div>
+        </div>
+
+        <!-- ************************ Star rating ************************ -->
+        <div class="rating-box">
+            <div class="title">Promedio calificación citas</div>
+            <div class="rating-details">
+                <div class="stars">
+                    <span class="fa fa-star checked"></span>
+                    <span class="fa fa-star checked"></span>
+                    <span class="fa fa-star checked"></span>
+                    <span class="fa fa-star checked"></span>
+                    <span class="fa fa-star"></span>
+                </div>
+            </div>
+            <div class="description">4.0/5.0</div>
+
+        </div>
+    </div>
+</div>
+{% endblock %}

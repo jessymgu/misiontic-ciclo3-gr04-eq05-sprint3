@@ -1,0 +1,128 @@
+{% extends 'layout.html' %}
+
+{% block titulo %} Médicos - Superadmin {% endblock %}
+{% block usuario %} Médicos {% endblock %}
+
+{% block body %}
+<!-- ************************ indicators board ************************ -->
+
+<div class="home-content patients">
+
+
+    <!-- ************************ table doctors database ************************ -->
+
+    <div class="patients-boxes">
+        <div class="recent-patients box">
+            <div class="title">Administrar Base de Datos de Médicos</div>            
+            <div class="button">
+                <a href="#" class="button-add"><i class="fa fa-user-plus"></i>Crear nuevo médico</a>
+            </div>
+            <div class="patients-details">
+
+                <table id="table" class="table">
+                    <thead>
+                        <tr>
+                            <th scope="col">ID</th>
+                            <th scope="col">Nombre</th>
+                            <th scope="col">Especialidad</th>
+                            <th scope="col">Email</th>
+                            <th scope="col">Dirección</th>
+                            <th scope="col">Número contacto</th>
+                            <th scope="col">Acciones</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <th scope="row">M0001</th>
+                            <td>Rollin Farrel</td>
+                            <td>Medicina Interna</td>
+                            <td style="text-align: right;">rfarrel@user.de</td>
+                            <td>Lake Matilde, Tennessee 74062, United States of America</td>
+                            <td>(699) 824-5724</td>
+                            <td>
+                                <div class="actions">
+                                    <i class='bx bx-edit-alt'></i>
+                                    <i class='bx bxs-trash'></i>
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <th scope="row">M0002</th>
+                            <td>Lera Stroman</td>
+                            <td>Oncología</td>
+                            <td style="text-align: right;">lstromanl@user.de</td>
+                            <td>Lake Matilde, Tennessee 74062, United States of America</td>
+                            <td>(699) 824-5724</td>
+                            <td>
+                                <div class="actions">                                    
+                                        <i class='bx bx-edit-alt'></i>   
+                                        <i class='bx bxs-trash'></i>                                        
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <th scope="row">M0003</th>
+                            <td>Adan Schiller</td>
+                            <td>Neurología</td>
+                            <td style="text-align: right;">aschillerl@user.de</td>
+                            <td>Lake Matilde, Tennessee 74062, United States of America</td>
+                            <td>(699) 824-5724</td>
+                            <td>
+                                <div class="actions">                                    
+                                        <i class='bx bx-edit-alt'></i>   
+                                        <i class='bx bxs-trash'></i>                                        
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <th scope="row">M0004</th>
+                            <td>Holga Perez</td>
+                            <td>Odontología</td>
+                            <td style="text-align: right;">hperez@user.de</td>
+                            <td>Lake Matilde, Tennessee 74062, United States of America</td>
+                            <td>(699) 824-5724</td>
+                            <td>
+                                <div class="actions">                                    
+                                        <i class='bx bx-edit-alt'></i>   
+                                        <i class='bx bxs-trash'></i>                                        
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <th scope="row">M0005</th>
+                            <td>Herman Lopez</td>
+                            <td>Cirugía</td>
+                            <td style="text-align: right;">hlopezl@user.de</td>
+                            <td>Lake Matilde, Tennessee 74062, United States of America</td>
+                            <td>(699) 824-5724</td>
+                            <td>
+                                <div class="actions">                                    
+                                        <i class='bx bx-edit-alt'></i>   
+                                        <i class='bx bxs-trash'></i>                                        
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <th scope="row">M0006</th>
+                            <td>Jesus Moreno</td>
+                            <td>Ortopedia</td>
+                            <td style="text-align: right;">jmoreno@user.de</td>
+                            <td>Lake Matilde, Tennessee 74062, United States of America</td>
+                            <td>(699) 824-5724</td>
+                            <td>
+                                <div class="actions">                                    
+                                        <i class='bx bx-edit-alt'></i>   
+                                        <i class='bx bxs-trash'></i>                                        
+                                </div>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            <div class="button">
+                <a href="#">See All</a>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

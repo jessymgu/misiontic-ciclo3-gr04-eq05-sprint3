@@ -1,0 +1,47 @@
+.patients-boxes .box .button .button-add{
+  display: flex;
+  justify-content: flex-end;
+  color: #fff;
+  background: #7EC544;    
+  padding: 4px 12px;
+  font-size: 15px;
+  font-weight: 400;
+  border-radius: 4px;
+  text-decoration: none;
+  transition: all 0.3s ease;
+}
+.patients-boxes .box .button .button-add:hover{
+    cursor: pointer;
+    color: #fff;
+    background: #7EC544; 
+}
+.home-content table .actions{
+display: flex;
+align-items: center;
+}
+.home-content table .bx-edit-alt{
+    display: flex;
+  align-items: center;
+  font-size: 30px;
+  font-weight: 500;
+  color: orange;
+  width: 50px;
+  height: 50px;
+  margin: none;
+  position: relative;
+}
+.home-content table .bxs-trash{
+    display: flex;
+  align-items: center;
+  font-size: 24px;
+  font-weight: 500;
+  color: red;
+  width: 50px;
+  height: 50px;
+}
+.home-content table .bx-edit-alt:hover {
+    cursor: pointer;
+}
+.home-content table .bxs-trash:hover {
+    cursor: pointer;
+}
