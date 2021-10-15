@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<!--Autor: @ThiagoAndres - Andrés Castillo-->
+<html>
+
+<head>
+    <script src="{{ url_for('static', filename='js/validacion.js') }}"></script>
+    <title>Formulario de registro</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/miEstilo.css') }}" />
+</head>
+
+<body>
+    <section class="content">
+        {% for me in get_flashed_messages() %}
+        <div class="flash">{{ me }}</div>
+        {% endfor %}
+    </section>
+
+    <h1>System Salud</h1><br>
+    <h2>Registro de usuario</h2>
+    <h3>Bienvenido </h3>
+    <p class="text_general">al formulario de creación de clave y usuario de acceso a "System Salud" de la Clinica Reina Catalina; favor diligenciar todos los campos.</p>
+    <div class="new_user_img"><img src="{{ url_for('static', filename='images/user-64.png') }}" alt="New user" /></div>
+    <!-- <form name="formulario" method="post" action="{{ url_for('register')}}"> -->
+
+
+    <form class="form_register" action="{{ url_for('register')}}" method="post" name="formRegistro" onSubmit="validar_formulario();">
+        <label for="nombre">Nombres:</label>
+        <input type="text" id="nombre" name="nombre">
+
+        <label for="apellidos">Apellidos:</label>
+        <input type="text" id="apellidos" name="apellidos">
+        <label for="type_rol">Usted es:</label>
+        <select name="select_usuario">
+          <option value="value1" selected>Paciente</option>
+          <option value="value2">Médico</option>
+        </select><br>
+
+        <label for="doc_type">Documento:</label>
+        <select name=" select_documento ">
+          <option value="value1" selected>Cédula de ciudadanía</option>
+          <option value="value2">Tarjeta de identidad</option>
+          <option value="value3">Registro civil</option>
+          <option value="value4">Pasaporte</option>
+        </select>
+
+        <label for="num_doc">No. de identificación:</label>
+        <input type="text" id="num_doc " name="num_doc"><br>
+
+        <!--<label for="sexo">Sexo:</label>
+        <input type="radio" id="sexo" name="sexo" value="h "> hombre
+        <input type="radio" name="sexo" id="sexo" value="m "> mujer<br>-->
+
+        <label for="fecha_nac">Fecha de nacimiento:</label>
+        <input type="date" id="start" name="trip-start" value="2021-10-16" min="2021-10-01" max="2021-10-31">
+
+        <div>
+            Sexo:
+            <input type="radio" id="femenino" name="sexo_radiobtn" value="femenino">
+            <label for="femenino">Femenino</label>
+
+            <input type="radio" id="masculino" name="sexo_radiobtn" value="masculino">
+            <label for="masculino">Masculino</label>
+        </div>
+
+        <label for="nacion">Nacionalidad:</label>
+        <select name=" select_documento ">
+          <option value="value1" selected>Colombiano(a)</option>
+          <option value="value2">Argentino(a)</option>
+          <option value="value3">Brasileño(a)</option>
+          <option value="value4">Ecuatoriano(a)</option>
+          <option value="value5">Venezolano(a)</option>
+          <option value="value6">Peruano(a)</option>
+        </select>
+
+        <label for="dir_res">Dirección de residencia:</label>
+        <input type="text" id="dir_res" name="dir_res"><br>
+
+
+        <label for="correo ">Correo:</label>
+        <input type="text " id="correo " name="correo " maxlength="100 ">
+
+        <label for="num_tel">No. teléfono/celular</label>
+        <input type="text" id="num_tel " name="num_tel "><br>
+        <br>
+
+        <a href="" target="">Uso y condiciones</a>
+        <input type="checkbox" name="condiciones "> Declaro haber leido y acepto las condiciones generales del programa y la normativa sobre protección de datos<br><br>
+        <button type="submit " value="Enviar ">Enviar</button>
+    </form>
+
+</body>
+
+</html>
