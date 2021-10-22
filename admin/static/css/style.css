@@ -125,18 +125,18 @@ nav .sidebar-button i{
 .home-section nav .logo-clinica{
   display: flex;
   width: 100px;
-  height: 50px;
-  max-width: 550px;  
+  height: 80px;
+  /* max-width: 550px;   */
   margin: 20px 20px;
 }
-.home-section nav .search-box{
+/* .home-section nav .search-box{
   position: relative;
   height: 50px;
   max-width: 550px;
   width: 100%;
   margin: 0 20px;
-}
-nav .search-box input{
+} */
+/* nav .search-box input{
   height: 100%;
   width: 100%;
   outline: none;
@@ -145,8 +145,8 @@ nav .search-box input{
   border-radius: 6px;
   font-size: 18px;
   padding: 0 15px;
-}
-nav .search-box .bx-search{
+} */
+/* nav .search-box .bx-search{
   position: absolute;
   height: 40px;
   width: 40px;
@@ -160,7 +160,7 @@ nav .search-box .bx-search{
   color: #fff;
   font-size: 22px;
   transition: all 0.4 ease;
-}
+} */
 .home-section nav .profile-details{
   display: flex;
   align-items: center;
