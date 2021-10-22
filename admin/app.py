@@ -29,5 +29,54 @@ def superadmin_citas():
 def method_name():
     pass
 
+# ----------------------------------------------------------------paciente citas--------------------------------#
+@app.route('/citas-paciente', methods=["GET"])
+def citaspaciente():
+    return render_template('citaspasiente.html')
+    # Lista de citas del paciente
+
+@app.route('/detalles-paciente', methods=["GET", "POST"])
+def detallespaciente():
+    return render_template('detallespaciente.html')
+    # Detalles de citas del paciente
+
+
+# ----------------------------------------------------------------medico citas--------------------------------#
+
+@app.route('/citas-medico', methods=["GET"])
+def citasmedico():
+    return render_template('citasmedico.html')
+    # Lista de citas del medico
+
+@app.route('/detalles-medico', methods=["GET", "POST"])
+def detallesmedico():
+    return render_template('detallesmedico.html')
+    # Detalles de citas del medico
+
+# -------------------------------------------------vista de los tipos de usuario---------------------------------------------#
+
+@app.route('/detalles-vista-medico', methods=["GET"])
+def vista():
+    return render_template('vistacita.html')
+    # Detalles de citas vista
+
+# -------------------------------------------------resultado de búsqueda---------------------------------------------#
+@app.route('/resultados_busqueda', methods=["GET"])
+def resultados_busqueda():
+    return render_template('resultado.html')
+
+
+# -------------------------------------------------perfiles de usuario---------------------------------------------#
+    # !Luego, el administrador, si así lo decide, usando el método POST, envía información a la BD. Puesto que el superadministrador puede crear una nueva cita, editar, o eliminar su información. Para ello, envía la información desde el navegador hasta el servidor (crear, editar o eliminar)
+@app.route('/medico-perfil', methods=["GET", "POST"])
+def medico_perfil():
+    return render_template('perfil_medico.html')
+
+@app.route('/paciente-perfil', methods=["GET", "POST"])
+def paciente_perfil():
+    return render_template('perfil_paciente.html')
+
+
+
 if __name__ == '__main__': #activar modo debug
     app.run(debug=True)

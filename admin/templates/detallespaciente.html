@@ -1,0 +1,57 @@
+{% extends 'layoutpaciente.html' %}
+
+{% block titulo %} Pacientes - Detalles {% endblock %}
+{% block usuario %} Detalles del patiente {% endblock %}
+
+{% block body %}
+
+{% block span %} Paciente {% endblock %}
+{% block span2 %} Holga Perez {% endblock %}
+
+
+
+<div class="home-content patients">
+
+
+    <!-- ************************ table patients database ************************ -->
+    <div></div>
+    <div class="patients-boxes">
+        <div class="recent-patients box">
+            <div class="title">CITAS PACIENTE</div>
+            <!-- <div class="button-add-patient">Crear nuevo paciente</div> -->
+            <div class="patients-details">
+                    <form>
+                        <h4>
+                        <legend>Formulario de creacion cita</legend><br>
+                        <a>Nombre Doctor: <input type="text" id="Medico" name="Nombre" placeholder="Nombre del doctor" class="formulario"></a><br>
+                        <a>Sede: <input type="text" id="Sede" name="Nombre" placeholder="Nombre de la Sede" class="formulario"></a><br>
+                        <a>Nombre Paciente: <input type="text" id="Paciente" name="Nombre"  placeholder="Ingrese su nombre" class="formulario"></a><br>
+                        <a>Documento de Identidad: <input type="text" id="DocIdentidad" name="Nombre" placeholder="Doc Identidad" class="formulario"></a><br>
+                        <a>Tipo de Documento Identidad: 
+                            <select id="Tipo" name="doc" class="formulario">
+                                <option>option</option>
+                                <option>option</option>
+                                <option>option</option>
+                            </select>
+                            <br>
+
+                        <hr><br>
+
+                        <a>Fecha y Hora: <input type="datetime-local" id="Fecha" name="Nombre" class="formulario"></a><br>
+                        
+                        <a>Direccion: <input type="text" id="Direccion" placeholder="Ingrese su Direccion" name="Nombre" class="formulario"></a><br>
+
+                        <hr><br>
+
+                        <div style="width:500px;">
+                            <input type="submit" class="msgBtn"  value="Guardar">
+                            <input type="submit" class="msgBtn2" value="Eliminar">
+                        </div>
+                    </h4>
+                    </form>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

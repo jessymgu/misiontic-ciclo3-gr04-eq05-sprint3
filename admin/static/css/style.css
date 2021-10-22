@@ -51,10 +51,10 @@
   text-decoration: none;
   transition: all 0.4s ease;
 }
-.sidebar .nav-links li a.dashboard{
+/* .sidebar .nav-links li a.dashboard{
   background: #13C0E5 ;
   color: #037E8C;
-}
+} */
 .sidebar .nav-links li a:hover{
   background: #13C0E5;
   color: #037E8C;
@@ -308,13 +308,18 @@ nav .profile-details i{
   border: 1px solid #f4f4f2c9;
   padding: 8px;
 }
+#table td:hover{
+  border-left: 2px solid #0a623d;
+  background: #13C0E5;
+  /***esta parte es la que cambia el fondo de la tabla solo los td***/
+}
 #table tr:nth-child(even) {
   background-color: white;
 }
 #table th {
   padding-top: 12px;
   padding-bottom: 12px;
-  text-align: left;
+  text-align: center;
   background-color: rgb(238, 237, 237);
   color: black;
 }
@@ -444,4 +449,27 @@ nav .profile-details i{
   .sidebar.active ~ .home-section nav .profile-details{
     display: none;
   }
+}
+
+/***formulario detalles de citas***/
+
+.formulario{
+  width: 95%;
+  background:#9addec;
+  padding:5px;
+  border-radius: 4px;
+  margin-bottom: 16px;
+  border: 1px solid #007e6dc9;
+  font-size: 18px; 
+}
+div input{
+  padding:5px;
+  border: 1px solid #007e6dc9;
+  border-radius: 4px;
+  background:#9addec;
+  width: 35%;
+  display:inline-block; 
+}
+a{
+  text-decoration: none;
 }

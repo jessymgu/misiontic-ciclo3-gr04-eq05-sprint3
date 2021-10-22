@@ -1,0 +1,64 @@
+{% extends 'layoutpaciente.html' %}
+
+{% block titulo %} Pacientes - CITAS {% endblock %}
+{% block usuario %} Citas del patiente {% endblock %}
+
+{% block body %}
+
+{% block span %} Paciente {% endblock %}
+{% block span2 %} Holga Perez {% endblock %}
+
+
+
+<div class="home-content patients">
+
+
+    <!-- ************************ table patients database ************************ -->
+
+    <div class="patients-boxes">
+        <div class="recent-patients box">
+            <div class="title">CITAS PACIENTE</div>
+            <!-- <div class="button-add-patient">Crear nuevo paciente</div> -->
+            <div class="button">
+                <a href="{{url_for('detallespaciente')}}" class="button-add"><i class="fa fa-user-plus"></i>Crear nuevo cita</a>
+            </div>
+            <div class="patients-details">
+
+                <table id="table" class="table">
+                    <thead>
+                        <tr>
+                            <th scope="col">Hora</th>
+                            <th scope="col">Nombre del doctor</th>
+                            <th scope="col">Tipo</th>
+                            <th scope="col">Dirección</th>
+                            <th scope="col">Fecha</th>
+                            <th scope="col">Acciones</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <th scope="row">13:30 PM</th>
+                            <td>Rollin Farrel</td>
+                            <td style="text-align: right;">general</td>
+                            <td>Lake Matilde, Tennessee 74062, United States of America</td>
+                            <td>05/11/2021</td>
+                            <td>
+                                <div class="actions">                                    
+                                    <a href="{{url_for('detallespaciente')}}"><i class='bx bx-edit-alt'></i></a>                                                                                
+                                        <i class='bx bxs-trash'></i>
+                                    <a href="{{url_for('vista')}}"><i class='bx bx-info-circle'></i></a>                                        
+                                </div>
+                            </td>
+                        </tr>
+                        
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
+
+
+
+

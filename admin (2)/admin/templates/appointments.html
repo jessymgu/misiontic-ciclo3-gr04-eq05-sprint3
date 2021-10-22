@@ -1,0 +1,117 @@
+{% extends 'layout.html' %}
+
+{% block titulo %} Citas - Superadmin {% endblock %}
+{% block usuario %} Citas {% endblock %}
+
+{% block body %}
+<!-- ************************ indicators board ************************ -->
+
+<div class="home-content patients">
+
+
+    <!-- ************************ table patients database ************************ -->
+
+    <div class="patients-boxes">
+        <div class="recent-patients box">
+            <div class="title">Administrar Citas</div>            
+            <div class="patients-details">
+
+                <table id="table" class="table">
+                    <thead>
+                        <tr>
+                            <th scope="col">Fecha-Hora</th>
+                            <th scope="col">Paciente</th>
+                            <th scope="col">Médico</th>
+                            <th scope="col">Especialidad</th>
+                            <th scope="col">Acciones</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <th scope="row">2021/10/31 - 15:03</th>
+                            <td>Lauren Farrel</td>
+                            <td>Rupaul Lars</td>
+                            <td>Ginecología</td>
+                            <td>
+                                <div class="actions">
+                                    <i class='bx bx-edit-alt'></i>
+                                    <i class='bx bxs-trash'></i>
+                                    <i class='bx bx-info-circle'></i>
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <th scope="row">2021/10/31 - 15:03</th>
+                            <td>Lera Stroman</td>
+                            <td>Rupaul Lars</td>
+                            <td>Medicina Interna</td>
+                            <td>
+                                <div class="actions">                                    
+                                    <i class='bx bx-edit-alt'></i>   
+                                    <i class='bx bxs-trash'></i>   
+                                    <i class='bx bx-info-circle'></i>                                     
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <th scope="row">2021/10/31 - 15:03</th>
+                            <td>Adan Schiller</td>
+                            <td>Rupaul Lars</td>
+                            <td>Oncología</td>
+                            <td>
+                                <div class="actions">                                    
+                                    <i class='bx bx-edit-alt'></i>   
+                                    <i class='bx bxs-trash'></i>   
+                                    <i class='bx bx-info-circle'></i>                                     
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <th scope="row">2021/10/31 - 15:03</th>
+                            <td>Holga Perez</td>
+                            <td>Rupaul Lars</td>
+                            <td>Neurología</td>
+                            <td>
+                                <div class="actions">                                    
+                                    <i class='bx bx-edit-alt'></i>   
+                                    <i class='bx bxs-trash'></i>   
+                                     <i class='bx bx-info-circle'></i>                                     
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <th scope="row">2021/10/31 - 15:03</th>
+                            <td>Herman Lopez</td>
+                            <td>Christa Yaz</td>
+                            <td>Odontología</td>
+                            <td>
+                                <div class="actions">                                    
+                                    <i class='bx bx-edit-alt'></i>   
+                                    <i class='bx bxs-trash'></i>  
+                                    <i class='bx bx-info-circle'></i>                                      
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <th scope="row">2021/10/31 - 15:03</th>
+                            <td>Jesus Moreno</td>
+                            <td>Pedro Dalton</td>
+                            <td>Dermatología</td>
+                            <td>
+                                <div class="actions">                                    
+                                    <i class='bx bx-edit-alt'></i>   
+                                    <i class='bx bxs-trash'></i>    
+                                    <i class='bx bx-info-circle'></i>                                    
+                                </div>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            <div class="button">
+                <a href="#">See All</a>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
