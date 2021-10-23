@@ -1,5 +1,11 @@
 from types import MethodDescriptorType
-from flask import Flask, render_template, url_for
+from types import MethodDescriptorType
+from flask import Flask, render_template, url_for,request, session
+from markupsafe import escape
+import os
+import sqlite3
+from sqlite3 import Error
+from flask.helpers import flash
 app = Flask(__name__) # __name__ busca archivos estáticos
 
 @app.route('/superadmin-dashboard', methods=["GET"])
@@ -32,11 +38,37 @@ def method_name():
 # ----------------------------------------------------------------paciente citas--------------------------------#
 @app.route('/citas-paciente', methods=["GET"])
 def citaspaciente():
-    return render_template('citaspasiente.html')
+    try:
+        with sqlite3.connect('citasmedico.db') as con:
+            con.row_factory =sqlite3.Row #convierte la respuesta de la Bd en un diccionario
+            cur = con.cursor()
+            cur.execute("SELECT * FROM citaspaciente")
+            row = cur.fetchall()
+            return render_template('citaspasiente.html',row=row)
+    except Error:
+        print(Error)
     # Lista de citas del paciente
 
 @app.route('/detalles-paciente', methods=["GET", "POST"])
 def detallespaciente():
+    if request.method == 'POST':
+        
+        id= request.form['Identidad']
+        hora= request.form['hora']
+        nomdoc= request.form['Nombre_doctor']
+        nompac= request.form['Nombre_paciente']
+        cita= request.form['cita']
+        direc= request.form['Direccion']
+        fecha= request.form['fecha']
+            
+        try:
+             with sqlite3.connect('citasmedico.db') as con:
+                cur = con.cursor()#manipula la conexion
+                cur.execute("INSERT INTO citaspaciente (ID,Hora,Nombre_doctor,Nombre_paciente,Tipo,Direccion,Fecha) VALUES (?,?,?,?,?,?,?)",(id,hora,nomdoc,nompac,cita,direc,fecha))
+                con.commit()#confirmar los datos enviados o actualiza los cambios en la bd
+        except Error:
+            print(Error)
+            
     return render_template('detallespaciente.html')
     # Detalles de citas del paciente
 
@@ -45,7 +77,15 @@ def detallespaciente():
 
 @app.route('/citas-medico', methods=["GET"])
 def citasmedico():
-    return render_template('citasmedico.html')
+    try:
+        with sqlite3.connect('citasmedico.db') as con:
+            con.row_factory =sqlite3.Row #convierte la respuesta de la Bd en un diccionario
+            cur = con.cursor()
+            cur.execute("SELECT * FROM citasmedico")
+            row = cur.fetchall()
+            return render_template('citasmedico.html',row=row)
+    except Error:
+        print(Error)
     # Lista de citas del medico
 
 @app.route('/detalles-medico', methods=["GET", "POST"])
