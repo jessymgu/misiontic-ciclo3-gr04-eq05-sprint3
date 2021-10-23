@@ -1,20 +1,130 @@
-.patients-boxes .box .button .button-add{
-  display: flex;
-  justify-content: flex-end;
+.home-content .search-box{
+  position: relative;
+  height: 50px;
+  max-width: 550px;
+  width: 100%;
+  margin: 0 20px;
+  margin-top: 50px;
+}
+.home-content .search-box .search{
+  height: 100%;
+  width: 100%;
+  outline: none;
+  background: #F5F6FA;
+  border: 2px solid #EFEEF1;
+  border-radius: 6px;
+  font-size: 18px;
+  padding: 0 15px;
+}
+.home-content .search-box .bx-search{
+  position: absolute;
+  height: 40px;
+  width: 40px;
+  background: #13C0E5 ;
+  right: 5px;
+  top: 50%;
+  transform: translateY(-50%);
+  border-radius: 4px;
+  line-height: 40px;
+  text-align: center;
   color: #fff;
-  background: #7EC544;    
+  font-size: 22px;
+  transition: all 0.4 ease;
+}
+
+/* !------------------------------------------------ */
+
+/* !search box */
+/* .home-content .search-box{
+  position: relative;
+  margin: 20px 20px;
+} */
+/*
+.home-content .search-box input .search{
+  height: 50px;
+  width: 500px;
+  max-width: 550px;
+  outline: none;
+  background: #F5F6FA;
+  border: 2px solid #EFEEF1;
+  border-radius: 6px;
+  font-size: 18px;
+  padding: 0 10px;
+
+} */
+/* .home-content .search-box .bx-search{
+  position: right;
+  height: 40px;
+  width: 40px;
+  background: #13C0E5 ;
+  right: 5px;
+  top: 50%;
+  transform: translateY(-50%);
+  border-radius: 4px;
+  line-height: 40px;
+  text-align: center;
+  color: #fff;
+  font-size: 22px;
+  transition: all 0.4 ease;
+} */
+.home-content .box .btn-create{
+  /* width: 100%;
+  position: relative;
+  display: flex;
+  justify-content: flex-end; */
+
+  /* position: relative; */
+  height: 45px;
+  max-width: 50%;
+  display: flex;
+  /* width: 100%; */
+  margin: 0 20px;
+}
+
+.patients-boxes .box .btn-create .btn-a{
+  color: #fff;
+  background: #c5445a;
   padding: 4px 12px;
   font-size: 15px;
   font-weight: 400;
   border-radius: 4px;
   text-decoration: none;
   transition: all 0.3s ease;
+  width: 50%;
 }
-.patients-boxes .box .button .button-add:hover{
+
+.home-content .box .button-add{
+  color: #fff;
+  background: #b644c5;
+  /* float: right; */
+  /* padding-left: 10px; */
+  border-color: #7EC544;
+  font-size: 18px;
+  height: 45px;
+  max-width: 250px;
+
+  /* min-width: 2%; */
+  /* position: relative;
+  display: flex; */
+  /* justify-content: flex-end; */
+}
+.home-content .box .button-add:hover{
     cursor: pointer;
-    color: #fff;
-    background: #7EC544; 
 }
+
+.btn-create .fa-user-plus{
+  /* for the icon in "crear nuevo usuario" */
+  background-color: #7EC544; /* Blue background */
+  border: none; /* Remove borders */
+  color: white; /* White text */
+  padding: 7px 10px; /* Some padding */
+  font-size: 20px; /* Set a font size */
+  cursor: pointer; /* Mouse pointer on hover */
+}
+
+/* !------------------------------------------------ */
+
+/* ! Table */
 .home-content table .actions{
 display: flex;
 align-items: center;
@@ -45,3 +155,4 @@ align-items: center;
 .home-content table .bxs-trash:hover {
     cursor: pointer;
 }
+
