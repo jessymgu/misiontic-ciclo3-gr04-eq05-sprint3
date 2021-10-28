@@ -1,5 +1,4 @@
 from types import MethodDescriptorType
-from types import MethodDescriptorType
 from flask import Flask, render_template, url_for,request, session
 from markupsafe import escape
 import os
