@@ -148,7 +148,8 @@ def login():
                     if query != None:
                         if check_password_hash(query[0], password):
                             session['user'] = user
-                            return redirect("/login_correcto")  # Redireccionar a otra ruta
+                            return redirect("/paciente-perfil")  # Redireccionar a otra ruta
+                            # return redirect("/login_correcto")  # Redireccionar a otra ruta
                             # return rendert_template("home.html") #Renderiza la vista pero no te cambia la ruta
                         else:
                             return "Credenciales incorrectas"
