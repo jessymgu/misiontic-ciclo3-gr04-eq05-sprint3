@@ -1,0 +1,80 @@
+        h1 {
+            color: #ffffff;
+            text-align: center;
+            background-color: #7EC544;
+        }
+        
+        h2 {
+            color: #ffffff;
+            text-align: center;
+            background-color: #037e8c;
+        }
+        
+        h1 {
+            color: #ffffff;
+            text-align: center;
+            background-color: #7EC544;
+        }
+        
+        .form_register {
+            width: 800px;
+            padding: 16px;
+            border-radius: 10px;
+            margin: auto;
+            background-color: #ccc;
+            border-color: #13C0E5;
+            border-width: medium;
+            text-align: center;
+        }
+        
+        .form_login {
+            width: 350px;
+            padding: 16px;
+            border-radius: 10px;
+            margin: auto;
+            background-color: #ccc;
+            border-color: #13C0E5;
+            border-width: medium;
+        }
+        
+        form input {
+            padding: 3px 10px;
+            border: 1px solid #f6f6f6;
+            border-radius: 3px;
+            margin: 8px 10px;
+            display: inline-block;
+        }
+        
+        button {
+            text-align: center;
+            font-weight: bold;
+        }
+        
+        .style_contrasena {
+            text-align: center;
+        }
+        
+        .style_bt_enviar_login {
+            text-align: center;
+        }
+        
+        .style_user {
+            text-align: center;
+        }
+        
+        .record_passwd {
+            text-align: center;
+        }
+        
+        .record_register {
+            text-align: center;
+        }
+        
+        .new_user_img {
+            text-align: center;
+        }
+        
+        .text_general {
+            text-align: center;
+            color: #037e8c;
+        }
