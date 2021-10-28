@@ -20,35 +20,30 @@
             <div class="title">CITAS PACIENTE</div>
             <!-- <div class="button-add-patient">Crear nuevo paciente</div> -->
             <div class="patients-details">
-                    <form>
-                        <h4>
-                        <legend>Formulario de creacion cita</legend><br>
-                        <a>Nombre Doctor: <input type="text" id="Medico" name="Nombre" placeholder="Nombre del doctor" class="formulario"></a><br>
-                        <a>Sede: <input type="text" id="Sede" name="Nombre" placeholder="Nombre de la Sede" class="formulario"></a><br>
-                        <a>Nombre Paciente: <input type="text" id="Paciente" name="Nombre"  placeholder="Ingrese su nombre" class="formulario"></a><br>
-                        <a>Documento de Identidad: <input type="text" id="DocIdentidad" name="Nombre" placeholder="Doc Identidad" class="formulario"></a><br>
-                        <a>Tipo de Documento Identidad: 
-                            <select id="Tipo" name="doc" class="formulario">
-                                <option>option</option>
-                                <option>option</option>
-                                <option>option</option>
-                            </select>
-                            <br>
+                <form method="POST">
+                    <h4>
+                    <legend>Formulario de creacion cita</legend><br>
+                    
+                    <a><input type="text" id="Identidad" name="Identidad" placeholder="ID" class="formulario"></a><br>
+                    <a>Hora:<input type="text" id="Fecha" name="hora" class="formulario" placeholder="00:00 AM/PM"></a><br>
 
-                        <hr><br>
+                    <a><input type="text" id="Medico" name="Nombre_doctor" placeholder="Nombre del doctor" class="formulario"></a><br>
+                    <a><input type="text" id="Paciente" name="Nombre_paciente"  placeholder="Ingrese su nombre" class="formulario"></a><br>
+                    <a><input type="text" id="Sede" name="cita" placeholder="Tipo cita" class="formulario"></a><br>  
 
-                        <a>Fecha y Hora: <input type="datetime-local" id="Fecha" name="Nombre" class="formulario"></a><br>
-                        
-                        <a>Direccion: <input type="text" id="Direccion" placeholder="Ingrese su Direccion" name="Nombre" class="formulario"></a><br>
+                    <hr><br>
+                    
+                    <a>Direccion: <input type="text" id="Direccion" name="Direccion" placeholder="Ingrese su Direccion"  class="formulario"></a><br>
+                    <a>Fecha:<input type="text" id="Fecha" name="fecha" class="formulario" placeholder="00/00/0000"></a><br>
 
-                        <hr><br>
+                    <hr><br>
 
-                        <div style="width:500px;">
-                            <input type="submit" class="msgBtn"  value="Guardar">
-                            <input type="submit" class="msgBtn2" value="Eliminar">
-                        </div>
-                    </h4>
-                    </form>
+                    <div style="width:500px;">
+                        <input type="submit"   value="Guardar">
+                        <input type="submit"   value="Eliminar">
+                    </div>
+                </h4>
+                </form>
                 </table>
             </div>
         </div>

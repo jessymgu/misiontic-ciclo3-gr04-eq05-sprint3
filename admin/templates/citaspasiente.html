@@ -27,8 +27,10 @@
                 <table id="table" class="table">
                     <thead>
                         <tr>
+                            <th scope="col">ID</th>
                             <th scope="col">Hora</th>
                             <th scope="col">Nombre del doctor</th>
+                            <th scope="col">Nombre del paceinte</th>
                             <th scope="col">Tipo</th>
                             <th scope="col">Dirección</th>
                             <th scope="col">Fecha</th>
@@ -36,21 +38,24 @@
                         </tr>
                     </thead>
                     <tbody>
+                    {% for r in row %}
                         <tr>
-                            <th scope="row">13:30 PM</th>
-                            <td>Rollin Farrel</td>
-                            <td style="text-align: right;">general</td>
-                            <td>Lake Matilde, Tennessee 74062, United States of America</td>
-                            <td>05/11/2021</td>
+                            <th scope="row">{{ r["ID"] }}</th>
+                            <th scope="row">{{ r["Hora"] }}</th>
+                            <td>{{ r["Nombre_doctor"] }}</td>
+                            <td>{{ r["Nombre_paciente"] }}</td>
+                            <td>{{ r["Tipo"] }}</td>
+                            <td>{{ r["Direccion"] }}</td>
+                            <td>{{ r["Fecha"] }}</td>
                             <td>
-                                <div class="actions">                                    
-                                    <a href="{{url_for('detallespaciente')}}"><i class='bx bx-edit-alt'></i></a>                                                                                
-                                        <i class='bx bxs-trash'></i>
-                                    <a href="{{url_for('vista')}}"><i class='bx bx-info-circle'></i></a>                                        
-                                </div>
+                            <div class="actions">                                    
+                                <a href="{{url_for('detallespaciente')}}"><i class='bx bx-edit-alt'></i></a>                                                                                
+                                    <i class='bx bxs-trash' sql="DELETE FROM estudiantes WHERE r"></i>
+                                <a href="{{url_for('vista')}}" ><i class='bx bx-info-circle'></i></a>                                        
+                            </div>
                             </td>
                         </tr>
-                        
+                    {% endfor%}   
                     </tbody>
                 </table>
             </div>
