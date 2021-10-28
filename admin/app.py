@@ -49,7 +49,7 @@ def method_name():
 @app.route('/citas-paciente', methods=["GET"])
 def citaspaciente():
     try:
-        with sqlite3.connect('citasmedico.db') as con:
+        with sqlite3.connect('DB_Clinica_RC.db') as con:
             con.row_factory =sqlite3.Row #convierte la respuesta de la Bd en un diccionario
             cur = con.cursor()
             cur.execute("SELECT * FROM citaspaciente")
@@ -72,7 +72,7 @@ def detallespaciente():
         fecha= request.form['fecha']
             
         try:
-             with sqlite3.connect('citasmedico.db') as con:
+             with sqlite3.connect('DB_Clinica_RC.db') as con:
                 cur = con.cursor()#manipula la conexion
                 cur.execute("INSERT INTO citaspaciente (ID,Hora,Nombre_doctor,Nombre_paciente,Tipo,Direccion,Fecha) VALUES (?,?,?,?,?,?,?)",(id,hora,nomdoc,nompac,cita,direc,fecha))
                 con.commit()#confirmar los datos enviados o actualiza los cambios en la bd
@@ -88,7 +88,7 @@ def detallespaciente():
 @app.route('/citas-medico', methods=["GET"])
 def citasmedico():
     try:
-        with sqlite3.connect('citasmedico.db') as con:
+        with sqlite3.connect('DB_Clinica_RC.db') as con:
             con.row_factory =sqlite3.Row #convierte la respuesta de la Bd en un diccionario
             cur = con.cursor()
             cur.execute("SELECT * FROM citasmedico")
@@ -142,7 +142,7 @@ def login():
             password = escape(request.form['password'])
 
             try:
-                with sqlite3.connect("DB_Clinica_RC_Users.db") as con:
+                with sqlite3.connect("DB_Clinica_RC.db") as con:
                     cur = con.cursor()
                     query = cur.execute("SELECT Contraseña FROM Usuarios WHERE Nombre_usuario=?", [user]).fetchone()
                     if query != None:
@@ -194,7 +194,7 @@ def register():
         else:
             hash_clave = generate_password_hash(pass_1)
             try:
-                with sqlite3.connect("DB_Clinica_RC_Users.db") as con:
+                with sqlite3.connect("DB_Clinica_RC.db") as con:
                     cur = con.cursor()
 
                     existe = cur.execute(
@@ -223,7 +223,7 @@ def about():
 def login_correcto():
     if 'user' in session:
         try:
-            with sqlite3.connect("DB_Clinica_RC_Users.db") as con:
+            with sqlite3.connect("DB_Clinica_RC.db") as con:
 
                 con.row_factory = sqlite3.Row
                 cur = con.cursor()
