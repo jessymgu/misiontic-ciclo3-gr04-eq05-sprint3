@@ -1,0 +1,43 @@
+<form class="form_register" action="{{ url_for( 'register')}} " method="post " name="formRegistro " onSubmit="validar_formulario(); ">
+
+    <label for="name ">Nombres:</label>
+    <input type="text " id="name " name="name ">
+
+    <label for="apell ">Apellidos:</label>
+    <input type="text " id="apell " name="apell "><br>
+
+    <label for="docum ">Documento:</label>
+    <input class="textfield " type="text " name="docum " placeholder="No. de documento ">
+
+    <label for="date ">Fecha de nacimiento</label>
+    <input class="calendar " type="date " name="date "><br>
+
+    <label for="gen ">Genero</label>
+    <input class="radio " type="radio " name="gen " value="female ">Femenino<input type="radio " name="gen " value="male ">Masculino<br>
+
+    <label for="email ">Email</label>
+    <input class="textfield " type="text " name="email " placeholder="ingresa tu correo "><br>
+
+    <label for="resid ">Dirección:</label>
+    <input class="textfield " type="text " name="resid " placeholder="ingresa dirección de residencia ">
+
+    <label for="tel ">Telefono</label>
+    <input class="textfield " type="text " name="tel " placeholder="número de teléfono "><br>
+
+    <label for="tipo_user ">Usted es:</label>
+    <input class="radio " type="radio " name="tipo_user " value="paciente ">Paciente<input type="radio " name="tipo_user " value="medico ">Médico <br>
+
+    <label for="username ">Crear usuario</label>
+    <input class="textfield " type="text " name="username " placeholder="ingresa tu usuario "><br>
+
+    <label for="pass1 ">Contraseña</label>
+    <input class="textfield " type="password " name="pass1 " placeholder="ingresa tu contraseña ">
+
+    <label for="pass2 ">Nuevamente su contraseña</label>
+    <input class="textfield " type="password " name="pass2 " placeholder="confirma tu contraseña "><br>
+
+
+    <a href=" " target=" ">Uso y condiciones</a>
+    <input type="checkbox " name="condiciones "> Declaro haber leido y acepto las condiciones generales del programa y la normativa sobre protección de datos<br><br>
+    <input class="boton " type="submit " value="Registrar ">
+</form>

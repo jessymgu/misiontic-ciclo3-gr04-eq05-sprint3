@@ -3,7 +3,7 @@ from wtforms import StringField, PasswordField, BooleanField, SubmitField, DateF
 from wtforms.validators import DataRequired,Length
 
 class FormInicio(FlaskForm):
-    usuario =StringField('Usuario o email', validators=[DataRequired(message="completar campo"), Length(max=10)])
-    contrasena =PasswordField('Contraseña', validators=[DataRequired(message="completar campo")])
+    username =StringField('Usuario', validators=[DataRequired(message="Completar campo alias"), Length(max=9)])
+    password =PasswordField('Contraseña', validators=[DataRequired(message="Completar campo contraseña")])
     recordar =BooleanField('Recordar inicio de sesión')
     enviar =SubmitField('Enviar')
