@@ -94,22 +94,20 @@
 }
 
 .home-content .box .button-add{
+  display: flex;
+  justify-content: flex-end;
   color: #fff;
-  background: #b644c5;
-  /* float: right; */
-  /* padding-left: 10px; */
-  border-color: #7EC544;
-  font-size: 18px;
-  height: 45px;
-  max-width: 250px;
-
-  /* min-width: 2%; */
-  /* position: relative;
-  display: flex; */
-  /* justify-content: flex-end; */
+  background: #7EC544;
+  padding: 4px 12px;
+  font-size: 15px;
+  font-weight: 400;
+  border-radius: 4px;
+  text-decoration: none;
+  transition: all 0.3s ease;
 }
 .home-content .box .button-add:hover{
     cursor: pointer;
+    background: #7EC544;
 }
 
 .btn-create .fa-user-plus{
