@@ -45,7 +45,7 @@ def superadmin_pacientes():
             cur.execute("SELECT * FROM Usuarios")
             # cur.execute("SELECT * FROM Pacientes")
             row = cur.fetchall()
-            return render_template('patients.html',row=row)
+            return render_template('doctors.html',row=row)
     except Error:
         print(Error)
 
