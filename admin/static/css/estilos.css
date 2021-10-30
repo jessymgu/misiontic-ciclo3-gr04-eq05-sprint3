@@ -1,15 +1,10 @@
-
-
 .circulo{
-    width: 290px;
-    height: 290px;
-    background-color: blue;
+    width: 90px;
+    height: 90px;
+    background-color: #7EC544;
     border-radius: 100%;
     top: 30%;
     left: 100px;
-
-    
-
 }
 
 .circulo > .dos{
@@ -18,23 +13,16 @@
     border-radius: 100%;
     margin: auto;
     align-items: baseline;
-    
-    
-
-
 }
 
-
-
 .informacion{
-    background: #7ec544;
-    height: 317px;
-    width: 700px;
+    background: #7EC544;
+    /* background: #F4F4F2; */
+    height: auto;
+    /* height: 360px; */
+    width:500px;
     text-align: center;
-    border: 2px solid blue;
-    
-    
-    
+    border: 2px solid #7EC544;
 }
 
 .informacion,article{
@@ -42,9 +30,8 @@
 }
 
 hr{
-   border-color: blue;
-   padding: 1px;
-   border: 2px solid blue;
-   
+   /* border-color: blue; */
+   padding: 2px;
+   /* border: 2px solid blue; */
 }
 
