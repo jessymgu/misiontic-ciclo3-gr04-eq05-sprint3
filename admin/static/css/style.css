@@ -280,7 +280,7 @@ nav .profile-details i{
 
 /** left box: Pacientes por especialidad médica -  */
 .home-content .patients-boxes .recent-patients{
-  min-width: 900px;
+  min-width: 1200px;
   background: #fff;
   padding: 20px 40px;
   margin: 0 20px;

@@ -19,92 +19,35 @@
                 <table id="table" class="table">
                     <thead>
                         <tr>
-                            <th scope="col">Fecha-Hora</th>
-                            <th scope="col">Paciente</th>
-                            <th scope="col">Médico</th>
-                            <th scope="col">Especialidad</th>
+                            <th scope="col">ID</th>
+                            <th scope="col">Hora</th>
+                            <th scope="col">Nombre del doctor</th>
+                            <th scope="col">Nombre del paciente</th>
+                            <th scope="col">Tipo</th>
+                            <th scope="col">Dirección</th>
+                            <th scope="col">Fecha</th>
                             <th scope="col">Acciones</th>
                         </tr>
                     </thead>
                     <tbody>
-                        <tr>
-                            <th scope="row">2021/10/31 - 15:03</th>
-                            <td>Lauren Farrel</td>
-                            <td>Rupaul Lars</td>
-                            <td>Ginecología</td>
-                            <td>
-                                <div class="actions">
-                                    <i class='bx bx-edit-alt'></i>
-                                    <i class='bx bxs-trash'></i>
-                                    <i class='bx bx-info-circle'></i>
-                                </div>
-                            </td>
-                        </tr>
-                        <tr>
-                            <th scope="row">2021/10/31 - 15:03</th>
-                            <td>Lera Stroman</td>
-                            <td>Rupaul Lars</td>
-                            <td>Medicina Interna</td>
-                            <td>
-                                <div class="actions">                                    
-                                    <i class='bx bx-edit-alt'></i>   
-                                    <i class='bx bxs-trash'></i>   
-                                    <i class='bx bx-info-circle'></i>                                     
-                                </div>
-                            </td>
-                        </tr>
-                        <tr>
-                            <th scope="row">2021/10/31 - 15:03</th>
-                            <td>Adan Schiller</td>
-                            <td>Rupaul Lars</td>
-                            <td>Oncología</td>
-                            <td>
-                                <div class="actions">                                    
-                                    <i class='bx bx-edit-alt'></i>   
-                                    <i class='bx bxs-trash'></i>   
-                                    <i class='bx bx-info-circle'></i>                                     
-                                </div>
-                            </td>
-                        </tr>
-                        <tr>
-                            <th scope="row">2021/10/31 - 15:03</th>
-                            <td>Holga Perez</td>
-                            <td>Rupaul Lars</td>
-                            <td>Neurología</td>
-                            <td>
-                                <div class="actions">                                    
-                                    <i class='bx bx-edit-alt'></i>   
-                                    <i class='bx bxs-trash'></i>   
-                                     <i class='bx bx-info-circle'></i>                                     
-                                </div>
-                            </td>
-                        </tr>
-                        <tr>
-                            <th scope="row">2021/10/31 - 15:03</th>
-                            <td>Herman Lopez</td>
-                            <td>Christa Yaz</td>
-                            <td>Odontología</td>
-                            <td>
-                                <div class="actions">                                    
-                                    <i class='bx bx-edit-alt'></i>   
-                                    <i class='bx bxs-trash'></i>  
-                                    <i class='bx bx-info-circle'></i>                                      
-                                </div>
-                            </td>
-                        </tr>
-                        <tr>
-                            <th scope="row">2021/10/31 - 15:03</th>
-                            <td>Jesus Moreno</td>
-                            <td>Pedro Dalton</td>
-                            <td>Dermatología</td>
-                            <td>
-                                <div class="actions">                                    
-                                    <i class='bx bx-edit-alt'></i>   
-                                    <i class='bx bxs-trash'></i>    
-                                    <i class='bx bx-info-circle'></i>                                    
-                                </div>
-                            </td>
-                        </tr>
+                        {% for r in row %}
+                            <tr>
+                                <th scope="row">{{ r["ID"] }}</th>
+                                <th scope="row">{{ r["Hora"] }}</th>
+                                <td>{{ r["Nombre_doctor"] }}</td>
+                                <td>{{ r["Nombre_paciente"] }}</td>
+                                <td>{{ r["Tipo"] }}</td>
+                                <td>{{ r["Direccion"] }}</td>
+                                <td>{{ r["Fecha"] }}</td>
+                                <td>
+                                    <div class="actions">
+                                        <a href="{{url_for('detallespaciente')}}"><i class='bx bx-edit-alt'></i></a>
+                                        <i class='bx bxs-trash' sql="DELETE FROM estudiantes WHERE r"></i>
+                                        <a href="{{url_for('vista')}}"><i class='bx bx-info-circle'></i></a>
+                                    </div>
+                                </td>
+                            </tr>
+                        {% endfor%}
                     </tbody>
                 </table>
             </div>

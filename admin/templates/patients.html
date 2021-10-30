@@ -20,102 +20,48 @@
             </div>
             <div class="patients-details">
 
-                <table id="table" class="table">
+                <table id="table">
                     <thead>
                         <tr>
                             <th scope="col">ID</th>
                             <th scope="col">Nombre</th>
+                            <th scope="col">Apellido</th>
+                            <th scope="col">Fecha nac.</th>
+                            <th scope="col">Género</th>
                             <th scope="col">Email</th>
-                            <th scope="col">Dirección</th>
-                            <th scope="col">Número contacto</th>
+                            <th scope="col">Residencia</th>
+                            <th scope="col">Ciudad</th>
+                            <th scope="col">Telefono</th>
+                            <th scope="col">Tipo usuario</th>
+                            <!-- <th scope="col">Fecha</th> -->
                             <th scope="col">Acciones</th>
+
                         </tr>
                     </thead>
                     <tbody>
+
+                        {% for r in row %}
                         <tr>
-                            <th scope="row">P0001</th>
-                            <td>Rollin Farrel</td>
-                            <td style="text-align: right;">rfarrel@user.de</td>
-                            <td>Lake Matilde, Tennessee 74062, United States of America</td>
-                            <td>(699) 824-5724</td>
+                            <th scope="row">{{ r["Documento"] }}</th>
+                            <td>{{ r["Nombre"] }}</td>
+                            <td>{{ r["Apellido"] }}</td>
+                            <td>{{ r["Fecha_nac"] }}</td>
+                            <td>{{ r["Genero"] }}</td>
+                            <td>{{ r["Email"] }}</td>
+                            <td>{{ r["Residencia"] }}</td>
+                            <td>{{ r["Ciudad"] }}</td>
+                            <td>{{ r["Telefono"] }}</td>
+                            <td>{{ r["Tipo_usuario"] }}</td>
+                            
                             <td>
-                                <div class="actions">
-                                    <!-- <div class="edit"> -->
-                                        <i class='bx bx-edit-alt'></i>                                        
-                                        <!-- <span class="edit">Editar</span> -->
-                                    <!-- </div> -->
-                                    <!-- <div class="delete"> -->
-                                        <i class='bx bxs-trash'></i>
-                                        <!-- <span class="edit">Eliminar</span> -->
-                                    <!-- </div> -->
-                                </div>
+                            <div class="actions">                                    
+                                <a href="{{url_for('detallespaciente')}}"><i class='bx bx-edit-alt'></i></a>                                                                                
+                                    <i class='bx bxs-trash' sql="DELETE FROM estudiantes WHERE r"></i>
+                                <a href="{{url_for('vista')}}" ><i class='bx bx-info-circle'></i></a>                                        
+                            </div>
                             </td>
                         </tr>
-                        <tr>
-                            <th scope="row">P0002</th>
-                            <td>Lera Stroman</td>
-                            <td style="text-align: right;">lstromanl@user.de</td>
-                            <td>Lake Matilde, Tennessee 74062, United States of America</td>
-                            <td>(699) 824-5724</td>
-                            <td>
-                                <div class="actions">                                    
-                                        <i class='bx bx-edit-alt'></i>   
-                                        <i class='bx bxs-trash'></i>                                        
-                                </div>
-                            </td>
-                        </tr>
-                        <tr>
-                            <th scope="row">P0003</th>
-                            <td>Adan Schiller</td>
-                            <td style="text-align: right;">aschillerl@user.de</td>
-                            <td>Lake Matilde, Tennessee 74062, United States of America</td>
-                            <td>(699) 824-5724</td>
-                            <td>
-                                <div class="actions">                                    
-                                        <i class='bx bx-edit-alt'></i>   
-                                        <i class='bx bxs-trash'></i>                                        
-                                </div>
-                            </td>
-                        </tr>
-                        <tr>
-                            <th scope="row">P0004</th>
-                            <td>Holga Perez</td>
-                            <td style="text-align: right;">hperez@user.de</td>
-                            <td>Lake Matilde, Tennessee 74062, United States of America</td>
-                            <td>(699) 824-5724</td>
-                            <td>
-                                <div class="actions">                                    
-                                        <i class='bx bx-edit-alt'></i>   
-                                        <i class='bx bxs-trash'></i>                                        
-                                </div>
-                            </td>
-                        </tr>
-                        <tr>
-                            <th scope="row">P0005</th>
-                            <td>Herman Lopez</td>
-                            <td style="text-align: right;">hlopezl@user.de</td>
-                            <td>Lake Matilde, Tennessee 74062, United States of America</td>
-                            <td>(699) 824-5724</td>
-                            <td>
-                                <div class="actions">                                    
-                                        <i class='bx bx-edit-alt'></i>   
-                                        <i class='bx bxs-trash'></i>                                        
-                                </div>
-                            </td>
-                        </tr>
-                        <tr>
-                            <th scope="row">P0006</th>
-                            <td>Jesus Moreno</td>
-                            <td style="text-align: right;">jmoreno@user.de</td>
-                            <td>Lake Matilde, Tennessee 74062, United States of America</td>
-                            <td>(699) 824-5724</td>
-                            <td>
-                                <div class="actions">                                    
-                                        <i class='bx bx-edit-alt'></i>   
-                                        <i class='bx bxs-trash'></i>                                        
-                                </div>
-                            </td>
-                        </tr>
+                    {% endfor%}                        
                     </tbody>
                 </table>
             </div>

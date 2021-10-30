@@ -48,20 +48,55 @@
 
     <div class="patients-boxes">
         <div class="recent-patients box">
-            <div class="title">Pacientes por Especialidad Médica</div>
+            <!-- <div class="title">Pacientes por Especialidad Médica</div> -->
+            <div class="title">Base de Datos - Usuarios</div>
             <div class="patients-details">
 
                 <table id="table">
                     <thead>
                         <tr>
-                            <th scope="Especialidad">ID</th>
-                            <th scope="Cantidad Pacientes">Nombre</th>
-                            <th scope="Cantidad Pacientes">Cantidad de pacientes</th>
+                            <th scope="col">ID</th>
+                            <th scope="col">Nombre</th>
+                            <th scope="col">Apellido</th>
+                            <th scope="col">Fecha nac.</th>
+                            <th scope="col">Género</th>
+                            <th scope="col">Email</th>
+                            <th scope="col">Residencia</th>
+                            <th scope="col">Ciudad</th>
+                            <th scope="col">Telefono</th>
+                            <th scope="col">Tipo usuario</th>
+                            <!-- <th scope="col">Fecha</th> -->
+                            <!-- <th scope="col">Acciones</th> -->
 
                         </tr>
                     </thead>
                     <tbody>
+
+                        {% for r in row %}
                         <tr>
+                            <th scope="row">{{ r["Documento"] }}</th>
+                            <td>{{ r["Nombre"] }}</td>
+                            <td>{{ r["Apellido"] }}</td>
+                            <td>{{ r["Fecha_nac"] }}</td>
+                            <td>{{ r["Genero"] }}</td>
+                            <td>{{ r["Email"] }}</td>
+                            <td>{{ r["Residencia"] }}</td>
+                            <td>{{ r["Ciudad"] }}</td>
+                            <td>{{ r["Telefono"] }}</td>
+                            <td>{{ r["Tipo_usuario"] }}</td>
+                            
+                            <!-- <td>
+                            <div class="actions">                                    
+                                <a href="{{url_for('detallespaciente')}}"><i class='bx bx-edit-alt'></i></a>                                                                                
+                                    <i class='bx bxs-trash' sql="DELETE FROM estudiantes WHERE r"></i>
+                                <a href="{{url_for('vista')}}" ><i class='bx bx-info-circle'></i></a>                                        
+                            </div>
+                            </td> -->
+                        </tr>
+                    {% endfor%}
+
+
+                        <!-- <tr>
                             <th scope="row">001</th>
                             <td>Cirugía</td>
                             <td style="text-align: right;">190</td>
@@ -90,7 +125,7 @@
                             <th scope="row">006</th>
                             <td>Neurología</td>
                             <td style="text-align: right;">53</td>
-                        </tr>
+                        </tr> -->
                     </tbody>
                 </table>
             </div>
