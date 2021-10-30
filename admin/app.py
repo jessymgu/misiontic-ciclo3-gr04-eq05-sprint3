@@ -26,7 +26,7 @@ def superadmin_index():
         with sqlite3.connect('DB_Clinica_RC.db') as con:
             con.row_factory =sqlite3.Row #convierte la respuesta de la Bd en un diccionario
             cur = con.cursor()
-            cur.execute("SELECT * FROM Usuarios")
+            cur.execute("SELECT * FROM Pacientes")
             row = cur.fetchall()
             return render_template('index.html',row=row)
     except Error:
@@ -42,7 +42,7 @@ def superadmin_pacientes():
         with sqlite3.connect('DB_Clinica_RC.db') as con:
             con.row_factory =sqlite3.Row #convierte la respuesta de la Bd en un diccionario
             cur = con.cursor()
-            cur.execute("SELECT * FROM Usuarios")
+            cur.execute("SELECT * FROM Pacientes")
             # cur.execute("SELECT * FROM Pacientes")
             row = cur.fetchall()
             return render_template('doctors.html',row=row)
@@ -59,7 +59,7 @@ def superadmin_medicos():
         with sqlite3.connect('DB_Clinica_RC.db') as con:
             con.row_factory =sqlite3.Row #convierte la respuesta de la Bd en un diccionario
             cur = con.cursor()
-            cur.execute("SELECT * FROM Usuarios")
+            cur.execute("SELECT * FROM Pacientes")
             # cur.execute("SELECT * FROM Medicos")
             row = cur.fetchall()
             return render_template('doctors.html',row=row)
@@ -167,15 +167,16 @@ def medico_perfil():
 
                     con.row_factory = sqlite3.Row
                     cur = con.cursor()
-                    query = cur.execute("SELECT Tipo_usuario, Nombre, Email, Genero, Apellido, Telefono,Residencia,Documento, Ciudad FROM Usuarios WHERE Nombre_usuario=?", [session['user']]).fetchone()
+                    query = cur.execute("SELECT Nombre, Email, Genero, Apellido, Telefono,Residencia,Documento, Ciudad FROM Medicos WHERE Nombre_usuario=?", [session['user']]).fetchone()
 
                     if query is None:
-                        return("El usuario no existe")
+                        flash("El usuario no existe")
+                        #return("El usuario no existe")
 
             except Error:
                 print(Error)
 
-            return render_template('perfil_medico.html', tipo_user=query[0], name=query[1], email=query[2], gen=query[3], apell=query[4],tel=query[5],resid=query[6],ciu=query[7],docum=query[8])
+            return render_template('perfil_medico.html', name=query[0], email=query[1], gen=query[2], apell=query[3],tel=query[4],resid=query[5],ciu=query[6],docum=query[7])
     return render_template('perfil_medico.html')
 
 
@@ -187,7 +188,7 @@ def paciente_perfil():
 
                     con.row_factory = sqlite3.Row
                     cur = con.cursor()
-                    query = cur.execute("SELECT Tipo_usuario, Nombre, Email, Genero, Apellido, Telefono,Residencia,Documento, Ciudad FROM Usuarios WHERE Nombre_usuario=?", [session['user']]).fetchone()
+                    query = cur.execute("SELECT Nombre, Email, Genero, Apellido, Telefono,Residencia,Documento, Ciudad FROM Pacientes WHERE Nombre_usuario=?", [session['user']]).fetchone()
 
                     if query is None:
                         return("El usuario no existe")
@@ -195,7 +196,7 @@ def paciente_perfil():
             except Error:
                 print(Error)
 
-            return render_template('perfil_paciente.html', tipo_user=query[0], name=query[1], email=query[2], gen=query[3], apell=query[4],tel=query[5],resid=query[6],ciu=query[7],docum=query[8])
+            return render_template('perfil_paciente.html', name=query[0], email=query[1], gen=query[2], apell=query[3],tel=query[4],resid=query[5],ciu=query[6],docum=query[7])
     return render_template('perfil_paciente.html')
 
 
@@ -217,18 +218,33 @@ def login():
             try:
                 with sqlite3.connect("DB_Clinica_RC.db") as con:
                     cur = con.cursor()
-                    query = cur.execute("SELECT Contraseña FROM Usuarios WHERE Nombre_usuario=?", [user]).fetchone()
+                    query = cur.execute("SELECT Contraseña FROM Pacientes WHERE Nombre_usuario=?", [user]).fetchone()
                     if query != None:
+
                         if check_password_hash(query[0], password):
+                            #flash("login correcto")
                             session['user'] = user
                             # !if tipo_usuario == 'paciente':
                             return redirect("/paciente-perfil")  # Redireccionar a otra ruta
                             # return redirect("/login_correcto")  # Redireccionar a otra ruta
                             # return rendert_template("home.html") #Renderiza la vista pero no te cambia la ruta
                         else:
-                            return "Credenciales incorrectas"
+                            flash("credenciales incorrectas")
+                            #return "Credenciales incorrectas"
                     else:
-                        return "El usuario NO existe"
+                        query2 = cur.execute("SELECT Contraseña FROM Medicos WHERE Nombre_usuario=?", [user]).fetchone()
+                        if query2 != None:
+
+                            if check_password_hash(query2[0], password):
+                                session['user'] = user
+                                return redirect("/medico-perfil")  # Redireccionar a otra ruta    
+                            else:
+                                flash("credenciales incorrectas")
+                                #return "Credenciales incorrectas"
+
+                        else:
+                            flash("El usuario no existe en nuestro sistema.")
+                            #return "El usuario NO existe"
             except Error:
                 print(Error)
 
@@ -246,7 +262,7 @@ def login_init():
     return render_template("login_correcto.html") """
 
 
-@app.route('/register', methods=('GET', 'POST'))
+@app.route('/register_paciente', methods=('GET', 'POST'))
 def register():
     if request.method == 'POST':
         name = escape(request.form['name'])
@@ -259,7 +275,7 @@ def register():
         ciudad= escape(request.form['ciu'])
         tel = escape(request.form['tel'])
         user = escape(request.form['username'])
-        tipo_user = escape(request.form['tipo_user'])
+        #tipo_user = escape(request.form['tipo_user'])
         pass_1 = escape(request.form['pass1'])
         pass_2 = escape(request.form['pass2'])
 
@@ -273,25 +289,78 @@ def register():
                     cur = con.cursor()
 
                     existe = cur.execute(
-                        "SELECT Nombre_usuario FROM Usuarios WHERE Nombre_usuario=?", [user]).fetchone()
+                        "SELECT Nombre_usuario FROM Pacientes WHERE Nombre_usuario=?", [user]).fetchone()
 
                     if existe!= None:
                         return "El Usuario ya existe, por favor intente de nuevo"
                     else:             
-                        cur.execute("INSERT INTO Usuarios(Nombre,Apellido, Documento, Fecha_nac, Genero, Email, Residencia, Ciudad, Telefono, Tipo_usuario, Nombre_usuario,Contraseña) VALUES (?,?,?,?,?,?,?,?,?,?,?,?)", (
-                           name, apell, docum, fecha_nac, gen, email, resid, ciudad, tel, tipo_user,  user, hash_clave))
+                        cur.execute("INSERT INTO Pacientes (Nombre,Apellido, Documento, Fecha_nac, Genero, Email, Residencia, Ciudad, Telefono, Nombre_usuario,Contraseña) VALUES (?,?,?,?,?,?,?,?,?,?,?)", (
+                           name, apell, docum, fecha_nac, gen, email, resid, ciudad, tel, user, hash_clave))
                         con.commit()
                         return "Guardado con exito"
+                        #render_template('login.html')
 
             except Error:
                 print(Error)
                 return "Registro no completado"
 
-    return render_template('register.html')
+    return render_template('register_paciente.html')
+
+
+@app.route('/register_medico', methods=('GET', 'POST'))
+def register_medico():
+    if request.method == 'POST':
+        name = escape(request.form['name'])
+        apell= escape(request.form['apell'])
+        docum= escape(request.form['docum'])
+        gen = escape(request.form['gen'])
+        email = escape(request.form['email'])
+        fecha_nac= escape(request.form['fecha_nac'])
+        resid = escape(request.form['resid'])
+        ciudad= escape(request.form['ciu'])
+        tel = escape(request.form['tel'])
+        user = escape(request.form['username'])
+        espe = escape(request.form['espec'])
+        pass_1 = escape(request.form['pass1'])
+        pass_2 = escape(request.form['pass2'])
+
+        
+        if pass_1 != pass_2:
+            return "Las contraseñas no coinciden"
+        else:
+            hash_clave = generate_password_hash(pass_1)
+            try:
+                with sqlite3.connect("DB_Clinica_RC.db") as con:
+                    cur = con.cursor()
+
+                    existe = cur.execute(
+                        "SELECT Nombre_usuario FROM Medicos WHERE Nombre_usuario=?", [user]).fetchone()
+
+                    if existe!= None:
+                        return "El Usuario ya existe, por favor intente de nuevo"
+                    else:             
+                        cur.execute("INSERT INTO Medicos (Nombre,Apellido, Documento, Fecha_nac, Genero, Email, Residencia, Ciudad, Telefono, Especialidad, Nombre_usuario,Contraseña) VALUES (?,?,?,?,?,?,?,?,?,?,?,?)", (
+                           name, apell, docum, fecha_nac, gen, email, resid, ciudad, tel, espe, user, hash_clave))
+                        con.commit()
+                        return "Guardado con exito"
+                        #return render_template('login.html')
+
+            except Error:
+                print(Error)
+                #flash("Registro no completado")
+                return "Registro no completado"
+
+    return render_template('register_medico.html')
+
+
 
 @app.route('/about', strict_slashes=False)
 def about():
     return render_template("about.html")
+
+@app.route('/register_tipo_user')
+def reg_user():
+    return render_template("register_tipo_user.html")
 
 
 @app.route('/login_correcto', methods=['GET'])
@@ -302,7 +371,7 @@ def login_correcto():
 
                 con.row_factory = sqlite3.Row
                 cur = con.cursor()
-                query = cur.execute("SELECT Tipo_usuario, Nombre, Email, Genero FROM Usuarios WHERE Nombre_usuario=?", [
+                query = cur.execute("SELECT Nombre, Email, Genero FROM Pacientes WHERE Nombre_usuario=?", [
                                     session['user']]).fetchone()
 
                 if query is None:
@@ -311,7 +380,7 @@ def login_correcto():
         except Error:
             print(Error)
 
-        return render_template('login_correcto.html', tipo_user=query[0], name=query[1], email=query[2], gen=query[3])
+        return render_template('login_correcto.html', name=query[0], email=query[1], gen=query[2])
     else:
         return "<a href='/'>Por favor inicie sesión</a>"
 

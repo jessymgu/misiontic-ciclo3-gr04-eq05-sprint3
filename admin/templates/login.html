@@ -1,7 +1,13 @@
 <!-- <!DOCTYPE html>
 Autor: @ThiagoAndres - Andrés Castillo
 <html> -->
-{% extends "layout_ppal.html" %} {% block content %}
+{% extends "layout_ppal.html" %} {% block content %} {% with mensajes = get_flashed_messages() %} {% if mensajes %}
+<ul>
+    {% for mensaje in mensajes %}
+    <li> {{mensaje}} </li>
+    {% endfor %}
+</ul>
+{% endif %} {% endwith %}
 
 <head>
     <script src="{{ url_for('static', filename='js/validacion.js') }}"></script>
@@ -58,7 +64,7 @@ Autor: @ThiagoAndres - Andrés Castillo
         <div class="col order-5">
             System Salud le permite reservar sus citas médicas con nuestros especialistas. Si aún no tiene su clave de acceso por favor diligenciar el siguiente formulario.
             <div class="button_register">
-                <a href="register" class="button scrolly">Registrate aquí</a>
+                <a href="register_tipo_user" class="button scrolly">Registrate aquí</a>
             </div>
         </div>
     </div>

@@ -1,0 +1,54 @@
+{% extends "layout_ppal.html" %} {% block content %}
+<!-- Features -->
+<form class="form_tipo_user">
+
+    <section class="box features">
+        <h2 class="major"><span>Seleccione tipo de usuario</span></h2>
+        <div>
+            <div id="contenedor">
+                <div>
+
+                    <!-- Feature -->
+                    <section class="box feature">
+                        <!--<img type="static/images" src="{{url_for('static', filename='pic01.jpg')}}" />-->
+                        <a href="#" class="image featured"><img src="static/images/patient.jpg" alt="" /></a>
+
+                        <p>
+                            Registre sus datos como <b>paciente</b> para obtener una usuario de acceso a nuestro sistema y gestionar sus citas médicas.
+                        </p>
+
+                    </section>
+
+                </div>
+
+                <div>
+
+                    <!-- Feature -->
+                    <section class="box feature">
+                        <a href="#" class="image featured"><img src="static/images/doctor.jpg" alt="" /></a>
+
+                        <p>
+                            Registre sus datos como <b>médico</b>, sea parte de este gran equipo de especialistas y aportemos a nuestra misión.
+                        </p>
+                    </section>
+
+                </div>
+
+                <div class="col-12">
+                    <ul class="actions">
+                        <li><a href="register_paciente" class="button large">Paciente</a></li>
+                    </ul>
+                </div>
+
+                <div class="col-12">
+                    <ul class="actions">
+                        <li>
+                            <a href="register_medico" class="button alt large">Médico</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+</form>
+{% endblock%}

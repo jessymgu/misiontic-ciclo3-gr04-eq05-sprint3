@@ -18,7 +18,7 @@
 </section>
 
 <h1><a href="index.html" id="logo">System Salud</a></h1><br>
-<h2>Registro de usuario</h2>
+<h2>Registro de Pacientes</h2>
 <h3>Bienvenido </h3>
 <p class="text_general">Formulario de creación de clave y usuario de acceso a "System Salud" de la Clinica Reina Catalina; favor diligenciar todos los campos.</p>
 <div class="new_user_img" text-align="center"><img src="{{ url_for('static', filename='images/user-64.png') }}" alt="New user" /></div>
@@ -26,7 +26,7 @@
 
 <!-- segundo form -->
 <!-- <form class="row g-3 " action="{{ url_for( 'register')}} " method="post " name="formRegistro " onSubmit="validar_formulario(); "> -->
-<form class="row g-3 " action="/register" method="post" name="formRegistro " onSubmit="validar_formulario(); ">
+<form class="row g-3 " action="/register_paciente" method="post" name="formRegistro " onSubmit="validar_formulario(); ">
 
     <div class="col-md-4 ">
         <label for="name" class="form-label ">Nombres:</label>
@@ -107,15 +107,7 @@
             Correcto!
         </div>
     </div>
-    <div class="form-check">
-        <label for="tipo_user" class="form-label ">Usted es</label>
-        <input type="radio" class="form-check-input" id="tipo_user" name="tipo_user" value="paciente" required>
-        <label class="form-check-label" for="tipo_user">Paciente</label>
 
-        <input type="radio" class="form-check-input" id="tipo_user" name="tipo_user" value="medico" required>
-        <label class="form-check-label" for="tipo_user">Médico</label>
-        <div class="invalid-feedback">Seleccione una opción</div>
-    </div>
     <div class="col-md-4 ">
         <label for="username" class=" form-label ">Alias / Nombre de usuario</label>
         <input type="text " class="form-control " id="username" name="username" required>
