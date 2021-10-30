@@ -116,14 +116,44 @@ def resultados_busqueda():
     return render_template('resultado.html')
 
 
-# -------------------------------------------------perfiles de usuario---------------------------------------------#
-    # !Luego, el administrador, si así lo decide, usando el método POST, envía información a la BD. Puesto que el superadministrador puede crear una nueva cita, editar, o eliminar su información. Para ello, envía la información desde el navegador hasta el servidor (crear, editar o eliminar)
+# ------------------------------------------------- perfiles de usuario ---------------------------------------------#
 @app.route('/medico-perfil', methods=["GET", "POST"])
 def medico_perfil():
+    if 'user' in session:
+            try:
+                with sqlite3.connect("DB_Clinica_RC.db") as con:
+
+                    con.row_factory = sqlite3.Row
+                    cur = con.cursor()
+                    query = cur.execute("SELECT Tipo_usuario, Nombre, Email, Genero, Apellido, Telefono,Residencia,Documento, Ciudad FROM Usuarios WHERE Nombre_usuario=?", [session['user']]).fetchone()
+
+                    if query is None:
+                        return("El usuario no existe")
+
+            except Error:
+                print(Error)
+
+            return render_template('perfil_medico.html', tipo_user=query[0], name=query[1], email=query[2], gen=query[3], apell=query[4],tel=query[5],resid=query[6],ciu=query[7],docum=query[8])
     return render_template('perfil_medico.html')
+
 
 @app.route('/paciente-perfil', methods=["GET", "POST"])
 def paciente_perfil():
+    if 'user' in session:
+            try:
+                with sqlite3.connect("DB_Clinica_RC.db") as con:
+
+                    con.row_factory = sqlite3.Row
+                    cur = con.cursor()
+                    query = cur.execute("SELECT Tipo_usuario, Nombre, Email, Genero, Apellido, Telefono,Residencia,Documento, Ciudad FROM Usuarios WHERE Nombre_usuario=?", [session['user']]).fetchone()
+
+                    if query is None:
+                        return("El usuario no existe")
+
+            except Error:
+                print(Error)
+
+            return render_template('perfil_paciente.html', tipo_user=query[0], name=query[1], email=query[2], gen=query[3], apell=query[4],tel=query[5],resid=query[6],ciu=query[7],docum=query[8])
     return render_template('perfil_paciente.html')
 
 
@@ -140,6 +170,7 @@ def login():
         if request.method == 'POST':
             user = escape(request.form['username'])
             password = escape(request.form['password'])
+            # !tipo_usuario = 
 
             try:
                 with sqlite3.connect("DB_Clinica_RC.db") as con:
@@ -148,6 +179,7 @@ def login():
                     if query != None:
                         if check_password_hash(query[0], password):
                             session['user'] = user
+                            # !if tipo_usuario == 'paciente':
                             return redirect("/paciente-perfil")  # Redireccionar a otra ruta
                             # return redirect("/login_correcto")  # Redireccionar a otra ruta
                             # return rendert_template("home.html") #Renderiza la vista pero no te cambia la ruta

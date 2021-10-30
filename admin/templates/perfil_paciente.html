@@ -1,11 +1,11 @@
 {%extends "layoutpaciente.html "%}
-{% block titulo %} Pacientes - Detalles {% endblock %}
-{% block usuario %} Detalles del paciente {% endblock %}
+{% block titulo %} Paciente - Detalles {% endblock %}
+{% block usuario %} Perfil: {{name}} {{apell}} {% endblock %}
 
 {% block body %}
 
 {% block span %} Paciente {% endblock %}
-{% block span2 %} Holga Perez {% endblock %}
+{% block span2 %} {{name}} {{apell}} {% endblock %}
 <div class="patients-boxes">
     <div class="recent-patients box">
         <div class="title">Administrar Base de Datos de Médicos</div>
@@ -32,35 +32,35 @@
                 <div class="informacion">
                     <section>
                         <article>
-                            <h3 >ramon</h3>
+                            <h3 >{{name}} {{apell}}</h3>
                             <hr class="hr">
                         </article>
-                        <article >
-                            <h3>Celular:</h3>
-                            <p>3567813245</p>
+                        <article>
+                            <h3>Telefono:</h3>
+                            <p>{{tel}}</p>
                             <hr class="hr">
                         </article>
                     
                         <article r>
                             <h3>I.D:</h3>
-                            <p>1.116.350.742</p>
+                            <p>{{ciu}}</p>
                             <hr class="hr">
                         </article>
-                        <article >
+                        <article>
                             <h3>Ciudad</h3>
-                            <p>Medellin</p>
+                            <p>{{docum}}</p>
                             <hr class="hr">
                         </article>
-                        <article >
+                        <article>
                             <h3>ubicacion</h3>
-                            <p>calle43d #33-50</p>
+                            <p>{{resid}}</p>
                             <hr class="hr">
                         </article>
                         <article>
                             <h3>sexo</h3>
-                            <p>Masculino</p>
-                            
+                            <p>{{gen}}</p>
                         </article>
+
                         
                         
                     </section>
